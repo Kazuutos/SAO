@@ -1,0 +1,198 @@
+﻿Tâches restantes - MMO SAO (mod + map + serveur)
+==============================================
+
+Résumé global du projet
+- Objectif : serveur Minecraft Forge 1.20.1 inspiré de Sword Art Online, jouable à grande échelle (~500 joueurs).
+- Contenus attendus : hub Aincrad (ville départ), zones de farm, arènes de boss, HUD SAO complet, systèmes de progression (stats, XP custom), armes/armures/cristaux SAO, boss multi-phases, ressources custom (textures/sons).
+- Contraintes : performance (optimisation serveur), scripts de gestion (build/deploy, backup/reset, start), compatibilité client/serveur Forge.
+
+Mod (saoworld)
+- Boss Illfang : ajouter phases (rage <50% HP), dash/cleave, adds, loot étoffé.
+- HUD SAO avancé : party HP, buffs, icône crystal, log d’événements (kill, loot).
+- Systèmes : stats joueur (force/vitesse), progression simple (XP custom), drops/craft SAO.
+- Ressources : textures/sons custom (armes, cristaux, HUD), son d’interface SAO.
+- Mobs : mobs SAO (loups, sangsues) + boss étage 2 (patterns, adds).
+
+Map/Monde
+- Étendre hub Aincrad : ville départ, structures, portails TP zones farm/boss.
+- Zones farm : spots pour mobs SAO, loot équilibré.
+- Arène boss : salle dédiée Illfang, future salle boss étage 2.
+- Importer/placer une map Aincrad plus grande (open source) si disponible.
+
+Serveur
+- Scripts de gestion : backup/reset du monde, relance rapide.
+- Start script simple (Java 17) déjà présent; optionnel: planifié au boot.
+
+Prochaines actions (proposées)
+- Priorité 1 : IA boss Illfang (phases rage <50% HP, dash/cleave, adds) + loot équilibré. (Partiel fait : enrage, dash, cleave, adds.)
+- Priorité 2 : HUD SAO avancé (party/buffs/notifications) + textures/sons custom.
+- Priorité 3 : Étendre hub/map (ville + zones farm + arène) ou importer une Aincrad open source.
+- Progression : stats joueur (force/vitesse), XP custom, drops/craft SAO.
+- Scripts : one-click build+copie+backup+start, start serveur dédié, backup/reset monde.
+
+État actuel (07/12/2025)
+- Mod compilé saoworld-0.1.0 : armes/cristaux, HUD HP (plus buffs/XP), boss Illfang avec enrage, dash, cleave, adds.
+- Ressources items : textures simples custom.
+- Datapack hub Aincrad minimal (plateforme + pads) dans le serveur servers/forge/sao-test.
+- Serveur Forge 1.20.1 installé, jar mod copié côté serveur et client.
+- Lanceur serveur : C:\Users\allon\Desktop\start-sao-server-simple.bat.
+
+Roadmap détaillée à poursuivre
+1) Boss/IA
+   - Illfang : phases supplémentaires, patterns, drops équilibrés.
+   - Boss étage 2/3 : mécaniques uniques, adds spécifiques, loot progressif.
+   - Mobs SAO : loups, sangsues, kobolds avec tables de loot.
+
+2) HUD / UI SAO
+   - Party HP, buffs/badges, notifications de loot/kill.
+   - Barre EXP custom, icône crystal, sons d’interface SAO.
+
+3) Progression / Systèmes
+   - Stats joueur (force/vitesse), XP custom, craft/drops SAO.
+   - Équilibrage loot/XP, tables de drop par étage/zone.
+
+4) Map / Monde
+   - Étendre le hub (ville, shops, portails TP).
+   - Zones de farm et arènes boss dédiées.
+   - Importer/adapter une Aincrad open source si dispo.
+
+5) Scripts / Ops
+   - Script PowerShell one-click : build + copie mod serveur/client + backup/reset + start.
+   - Backups réguliers, planification optionnelle.
+
+Notes pour une future IA/développeur
+- Le dépôt mod est dans MinecraftDev/mods/forge/sao-world (Forge 1.20.1).
+- Serveur de test : MinecraftDev/servers/forge/sao-test (lanceur .bat sur le bureau).
+- Client : mod jar déjà copié dans .minecraft/mods.
+- Pas d’agents/IA externes : automatisation via scripts ou CI.
+
+
+Chemins et emplacements (rappel)\n-------------------------------
+Chemins et emplacements du projet SAO
+=====================================
+
+Mod source (Forge 1.20.1)
+- Dossier : C:\Users\allon\MinecraftDev\mods\forge\sao-world
+- Build output : C:\Users\allon\MinecraftDev\mods\forge\sao-world\build\libs\saoworld-0.1.0.jar
+- Code clé :
+  - Boss Illfang : src\main\java\com\sao\world\entity\FloorOneBoss.java
+  - HUD : src\main\java\com\sao\world\client\SAOOverlay.java
+  - Items/registrations : src\main\java\com\sao\world\SAOWorldMod.java
+- Ressources : src\main\resources\assets\saoworld (models, textures, lang)
+- Loot : src\main\resources\data\saoworld\loot_tables
+
+Serveur de test (Forge 1.20.1)
+- Dossier : C:\Users\allon\MinecraftDev\servers\forge\sao-test
+- Mods : C:\Users\allon\MinecraftDev\servers\forge\sao-test\mods (saoworld-0.1.0.jar copié)
+- Datapack hub Aincrad : C:\Users\allon\MinecraftDev\servers\forge\sao-test\world\datapacks\sao_aincrad
+- Lanceur (bureau) : C:\Users\allon\Desktop\start-sao-server-simple.bat
+- Fichiers de lancement Forge : user_jvm_args.txt, libraries/net/minecraftforge/forge/1.20.1-47.3.22/win_args.txt
+
+Client
+- Mods : C:\Users\allon\AppData\Roaming\.minecraft\mods\saoworld-0.1.0.jar
+- Profil : Forge 1.20.1
+
+Scripts / lanceurs
+- Lancement serveur simple : C:\Users\allon\Desktop\start-sao-server-simple.bat
+- (À faire) Script PowerShell one-click : build + copie mod serveur/client + backup/reset + start
+
+Plans et documentation
+- Plan détaillé : C:\Users\allon\Desktop\SAO_plan.txt
+
+Notes
+- JAVA 17 : C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot
+- Utiliser PowerShell avec . ..\..\..\use-java17.ps1 dans le dossier du mod avant gradlew si besoin.
+- Aucune automatisation d’agent externe : tout est local/script/Forge 1.20.1.
+
+
+
+Note d'usage pour mise a jour
+- Toute action sur le mod/map/serveur doit etre notee ici (SAO_plan.txt) sans qu'on te le demande : ajouter ce qui a ete fait, l'etat, les chemins concernes.
+- Ne pas compter sur des agents externes : tout est local (Forge 1.20.1), scripts ou CI eventuelle. Ce fichier est la source unique.
+
+
+Rappel IMPORTANT
+- Toute modification (mod/map/serveur) doit etre notee dans SAO_plan.txt immediatement. Ce fichier est la source unique. Aucun agent/IA ne mettra a jour pour toi automatiquement.
+
+
+- Lanceur serveur mis a jour : start-sao-server-simple.bat (chemins JAVA_EXE et SERVER_DIR corriges, log de lancement, pause apres stop).
+
+
+- Lanceur serveur mis a jour (utilise PowerShell pour appeler Java avec @user_jvm_args.txt et win_args.txt).
+
+- Lanceur serveur mis a jour : appel direct Java (plus de PowerShell).
+
+- Lanceur serveur ajuste: appels @user_jvm_args.txt et @...win_args.txt cites, affichage code retour Java.
+
+- Lanceur serveur: utilisation de chemins absolus pour user_jvm_args.txt et win_args.txt (ARG_USER/ARG_WIN).
+
+- Lanceur serveur refait : Powershell Set-Location serveur, Java avec --%% et argfiles relatifs (user_jvm_args.txt, win_args.txt).
+
+- Raccourci serveur ajoute sur le bureau : sao-server-test.lnk -> C:\\Users\\allon\\MinecraftDev\\servers\\forge\\sao-test.
+
+- .bat lanceur mis de cote (utiliser lancement manuel via Java dans le dossier serveur).
+
+- Serveur lance via Start-Process (Java) depuis PowerShell dans C:\\Users\\allon\\MinecraftDev\\servers\\forge\\sao-test. Process java actif (vérifier via Get-Process).
+
+- Nouveau mod (placeholder) pour animations: C:\\Users\\allon\\MinecraftDev\\mods\\forge\\sao-anim (modid saoanim), build OK (jar dans build\\libs).
+
+- Jar externe present: C:\\Users\\allon\\Downloads\\nexo-1.15.jar (4.59 MB, 07/12/2025). A evaluer avant integration (version/compat/licence).
+
+- PRIORITE: Fiabiliser le lancement serveur (Java + argfiles). Commande manuelle OK: 'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.17.10-hotspot\\bin\\java.exe' @user_jvm_args.txt @libraries\\net\\minecraftforge\\forge\\1.20.1-47.3.22\\win_args.txt --nogui. Rendre le lancement reproductible (script simple/chemins stables).
+- Regle autonomie : agir sans poser de questions ni confirmations; executer et noter les actions dans SAO_plan.txt.
+
+- Lanceur serveur recree (Desktop\\start-sao-server-simple.bat) : JAVA_EXE absolu, argfiles absolus, checks de presence, pause.
+
+- Script one-click ajoute : C:\Users\allon\Desktop\sao-oneclick.ps1 (build mod, copie jar serveur+client, backup world zip, reset optionnel, start Java detache). Copie nexo-1.15.jar sur serveur (et client si -CopyExtrasToClient).
+- Illfang ameliore : phases 3 (rage <50%, berserk <25%), buffs DMG/vitesse/armure, dash/cleave/quake plus frequents, vagues d'adds (zombies) phase 2/3, pression d'invocation periodique, debuffs lenteur/faiblesse, loot reequilibre (cristaux 2-4, return 60%, Anneal 35%, Demonic 12%, scrap/diamants).
+- HUD SAO etendu : barres party joueurs proches (<=32 blocs), liste buffs compact, notifications loot/kill, affichage cristaux Heal/Return; overlay toujours sur l'UI hotbar.
+- Mod rebuild et jar copie vers serveur+client (saoworld-0.1.0.jar).
+
+- Regle ajout : faire des recherches GitHub + internet pour aider et trouver des ressources utiles pour le serveur.
+
+- Recherche HUD: repo GitHub SAO-UI 1.7.10 clone dans C:\Users\allon\MinecraftDev\docs\sao-ui-1.7.10 (textures gui/icons/ascii, sons UI confirm/menu/message). Licence non specifiee -> verifier avant reutilisation; servir de reference pour HUD 1.20.1.
+
+- Import HUD SAO-UI 1.7.10: sons confirm/dialog/menu/message/orb/death copies dans assets/saoworld/sounds + sounds.json; enregistrement SoundEvent (ui_confirm, ui_dialog_close, ui_menu_popup, ui_message, ui_orb_dropdown, ui_particles_death). Overlay joue sons sur loot/kill/death (SAOOverlay). Build et jars mis a jour serveur/client.
+
+- Cristaux: sons SAO sur usage (Heal -> ui_confirm, Return -> ui_orb_dropdown). Textes corriges (ASCII).
+- HUD: import textures SAO UI (gui/icons/slot) dans assets/saoworld/textures/gui; affichage cristaux utilise slot + icone SAO; notifs jouent ui_menu_popup. Sons renommes (ui_confirm/ui_dialog_close/ui_menu_popup/ui_message/ui_orb_dropdown/ui_particles_death). Build OK et jar copie serveur+client.
+
+- HUD: notifs affichent icone SAO (textures gui/icons) et jouent ui_menu_popup; slot icone deja utilisè pour cristaux. Build OK + jar copie serveur/client.
+
+- HUD sons menus: Screen opening/closing joue ui_menu_popup/ui_dialog_close (SAOOverlay). Notifs icone + son, cristaux slot icone. Build OK + jar deploy.
+
+- Police SAO: ajout bitmap sao_ascii.png et override assets/minecraft/font/default.json (prioritaire, fallback vanilla) pour UI SAO globale; overlay utilise la police par defaut (donc SAO).
+- Tooltips en_us ajoutes: Healing Crystal (heal+regen/absorption), Teleport Crystal (retour spawn). Build OK + jar deploy serveur/client.
+
+- Fix crash overlay: deplace fonte sao_ascii en textures/font, override font default (assets/minecraft/font/default.json) pointe OK; sounds.json corrigé (clés sans namespace). Build OK + jar deploy serveur/client; relancer serveur + client pour prise en compte.
+
+- Police SAO ref repo 1.7.10: fonte mappee via saoworld:font/sao_font.json (bitmap sao_ascii.png) + fallback vanilla; overlay dessine en style SAO via style.withFont. Override minecraft/font/default retire. Build OK + jar deploy serveur/client.
+
+- Recherche HUD/armes : repo GitHub SAO-Mod (branche TheGoldenProof-SAOMod) clone dans C:\Users\allon\MinecraftDev\docs\sao-mod-gp. Contenus 1.12.2 : textures armes SAO (elucidator, dark_repulser, blue_rose_sword, black_one, excalibur, osmanthus_blade, dragon gear), blocs gigas cedar, marbre; lang en_us; code items/blocks; dependances simpleRPG/natura 1.12.2. Licence non precisee -> valider avant reutilisation directe (utiliser comme reference).
+
+- Recherche HUD/armes: repo GitHub bfox1/SAO clone C:\Users\allon\MinecraftDev\docs\sao-mod-bfox (branche dev). Assets 1.7.10: nombreuses textures items (Anneal, DarkRepulser, Elucidator, boss tokens, crystals, armures, armes GGO), overlays health/status SAO, boutons UI SAO, blocs Aincrad. Code 1.7.10 (net.teamsao.mcsao.*). Licence non precisee -> valider avant reutilisation (reference uniquement).
+
+- Ajout armes SAO (textures depuis Fenekhu SAO-Mod) : Elucidator, Dark Repulser, Night Sky Sword (Black One), Blue Rose Sword. Items enregistres (Tier netherite, rarite RARE/EPIC), models + textures copiees, lang en_us ajoute. Build OK + jar deploy serveur/client.
+
+- Regle textures : se baser sur styles/qualite des textures SAO importees (Elucidator, Dark Repulser, Night Sky, Blue Rose) pour toute creation future (palette, contour, shading).
+
+- Nexo jar analyse: C:\Users\allon\Downloads\nexo-1.15.jar = plugin Paper 1.21 (nms v1_21_R1, paper-plugin.yml), compile JDK21; incompatible avec Forge 1.20.1 serveur modded. Ne pas charger sur sao-test.
+
+- Loot Illfang: ajoute drops Elucidator (8%), Dark Repulser (8%), Blue Rose (5%), Night Sky Sword (3%) avec looting; toujours Anneal 35%, Demonic 12%.
+- Textures armes SAO importées (Fenec) : placées dans assets/saoworld/textures/item + models. Build OK + jar deploy serveur/client.
+- Nexo: plugin Paper 1.21 incompatible Forge 1.20.1, ne pas charger sur sao-test.
+
+- HUD: barre de vie remplacee par textures SAO (healthBar/healthBarBase du repo bfox1), dessinee pleine largeur 408px; texte HP avec police SAO. Build OK + jar deploy serveur/client.
+
+- HUD: icones statuts SAO (poison, blindness, slow/paralysis/stun base) via textures bfox1; liste effets activee colonne droite. Build OK + jar deploy serveur+client.
+
+- Recipes ajoutes: Elucidator (scraps/stick), Dark Repulser (diamonds/stick), Blue Rose (blue ice/stick), Night Sky (netherite ingot/stick). Build OK + jar deploy serveur+client.
+
+- Datapack hub/arena : load.mcfunction mis a jour (plateforme Aincrad + pads + arene Illfang simple a 200,64,0). tick.mcfunction ajoute TP pads (light_blue->arena, lime->spawn).
+
+- Scaffolding worldgen (mod): structure_set/structure/template_pool pour arena_illfang + placeholder nbt. A activer plus tard si on passe l'arene en structure generée. Actuellement arene generee via datapack.
+
+- HUD SAO: icones statuts mappées (poison/blind/slow/weakness) via textures bfox1, barre EXP stylisée, police SAO. Build OK + jar deploy serveur+client.
+
+- Datapack QoL: gamerules keepInventory/doImmediateRespawn/spawnRadius0/reducedDebug/sendCommandFeedback false/doWeatherCycle false set in load.mcfunction; pads TP (light_blue->arena 200 65 0, lime->spawn).
+- Script backup: C:\Users\allon\Desktop\sao-backup-world.ps1 (zip world with timestamp, optional -StopFirst kills java for clean backup).

@@ -1,0 +1,15 @@
+{
+  "itemGroup.saoworld.sao_tab": "Sword Art Online",
+  "item.saoworld.anneal_blade": "Anneal Blade",
+  "item.saoworld.demonic_sword": "Demonic Sword",
+  "item.saoworld.elucidator": "Elucidator",
+  "item.saoworld.dark_repulser": "Dark Repulser",
+  "item.saoworld.black_one": "Night Sky Sword",
+  "item.saoworld.blue_rose_sword": "Blue Rose Sword",
+  "item.saoworld.heal_crystal": "Healing Crystal",
+  "item.saoworld.return_crystal": "Teleport Crystal",
+  "item.saoworld.heal_crystal.tooltip": "Full heal + regen/absorption",
+  "item.saoworld.return_crystal.tooltip": "Return to world spawn safely",
+  "item.saoworld.floor_one_boss_spawn_egg": "Spawn Illfang (Floor 1 Boss)",
+  "entity.saoworld.floor_one_boss": "Illfang the Kobold Lord"
+}

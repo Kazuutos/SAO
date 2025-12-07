@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:worldgen/structure_set",
+  "structures": [
+    {"structure": "saoworld:arena_illfang", "weight": 1}
+  ],
+  "placement": {"type": "minecraft:random_spread", "salt": 12345, "separation": 20, "spacing": 32}
+}

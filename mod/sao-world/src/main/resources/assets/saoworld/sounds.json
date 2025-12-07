@@ -1,0 +1,8 @@
+{
+  "ui_confirm": { "category": "master", "sounds": [ { "name": "saoworld:ui_confirm" } ] },
+  "ui_dialog_close": { "category": "master", "sounds": [ { "name": "saoworld:ui_dialog_close" } ] },
+  "ui_menu_popup": { "category": "master", "sounds": [ { "name": "saoworld:ui_menu_popup" } ] },
+  "ui_message": { "category": "master", "sounds": [ { "name": "saoworld:ui_message" } ] },
+  "ui_orb_dropdown": { "category": "master", "sounds": [ { "name": "saoworld:ui_orb_dropdown" } ] },
+  "ui_particles_death": { "category": "master", "sounds": [ { "name": "saoworld:ui_particles_death" } ] }
+}

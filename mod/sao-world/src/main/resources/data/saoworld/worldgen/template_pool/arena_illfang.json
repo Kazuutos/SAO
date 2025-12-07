@@ -1,0 +1,14 @@
+{
+  "name": "saoworld:arena_illfang/start",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "saoworld:arena/illfang_arena",
+        "projection": "rigid"
+      }
+    }
+  ]
+}
