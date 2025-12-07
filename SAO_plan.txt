@@ -196,3 +196,6 @@ Rappel IMPORTANT
 
 - Datapack QoL: gamerules keepInventory/doImmediateRespawn/spawnRadius0/reducedDebug/sendCommandFeedback false/doWeatherCycle false set in load.mcfunction; pads TP (light_blue->arena 200 65 0, lime->spawn).
 - Script backup: C:\Users\allon\Desktop\sao-backup-world.ps1 (zip world with timestamp, optional -StopFirst kills java for clean backup).
+
+Mises à jour (IA 2025-07-12)
+- Ajout du document de conception serveur Paper/Velocity SAO : docs/SAO_MMO_Design.md (architecture, gameplay, configs exemples).
